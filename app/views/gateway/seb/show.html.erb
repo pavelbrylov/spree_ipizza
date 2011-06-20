@@ -1,0 +1,18 @@
+<% content_for :page_title do %>
+<h1 class="font-41 black"><%= t("seb.pay")%></h1>
+<% end %>
+<h1 class="font-41 black"><%= "#{t('order')} #{@order.number}" %></h1>
+<%= render :partial => 'shared/order_details', :locals => {:order => @order} %>
+
+<div class="clear"></div>
+<div class="font-41">&nbsp;</div>
+<button style="margin-left: 350px;" class="button_buy left" href="">
+  <span class="left_b"></span>
+  <span class="line_b">
+      <%= ipizza_payment_form_tag @bankpayment, :service => :seb do %>
+          <%= submit_tag 'Pay using SEB Bank' %>
+       <% end %>   
+       </span>
+  <span class="right_b"></span>
+</button>
+<div class="clear"></div>
