@@ -12,4 +12,4 @@ Example
 Example will be added later.
 
 
-Copyright (c) 2011 Pavel Brylov (pavel[at]brilow.info), released under the New BSD License
+Copyright (c) 2011 Pavel Brylov (pavel[at]brylov.info), released under the New BSD License

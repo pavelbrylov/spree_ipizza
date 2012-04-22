@@ -2,13 +2,13 @@ Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.name        = 'spree_ipizza'
   s.version     = '0.1'
-  s.summary     = 'Add gem summary here'
-  s.description = 'Add (optional) gem description here'
+  s.summary     = 'Ipizza support for Spree'
+  s.description = 'Ipizza is payment protocol which is used mostly in Estonia'
   s.required_ruby_version = '>= 1.8.7'
 
   s.author            = 'Pavel Brylov'
-  s.email             = 'pavel@brilow.info'
-  s.homepage          = 'http://www.brilow.info'
+  s.email             = 'pavel@brylov.info'
+  s.homepage          = 'http://www.brylov.info'
   s.rubyforge_project = 'spree_ipizza'
 
   s.files         = `git ls-files`.split("\n")
@@ -16,6 +16,6 @@ Gem::Specification.new do |s|
   s.require_path = 'lib'
   s.requirements << 'none'
 
-  s.add_dependency('spree_core', '>= 0.60.99')
+  s.add_dependency('spree_core', '>= 0.70')
   s.add_dependency('ipizza-rails', '>= 0.0.6')
 end
