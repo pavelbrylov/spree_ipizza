@@ -1,7 +1,6 @@
 module Spree
     class Gateway::IpizzaController < Spree::BaseController
-      skip_before_filter :verify_authenticity_token, :only => [:result, :success, :fail]
-      before_filter :valid_payment,                  :only => [:result]
+      skip_before_filter :verify_authenticity_token, :only => [:success, :failure]
 
       def show
         @order = Order.find_by_number(params[:order_id])
@@ -47,7 +46,7 @@ module Spree
       def failure
         @order = Order.find_by_number(params[:VK_STAMP].to_i)
         flash.now[:error] = t("payment_fail")
-        redirect_to @order.blank? ? root_url : edit_order_checkout_url(@order, :step => "payment")
+        redirect_to @order.blank? ? root_url : checkout_state_path("payment")
           return
       end
 
