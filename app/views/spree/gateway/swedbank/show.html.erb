@@ -10,7 +10,7 @@
   <span class="left_b"></span>
   <span class="line_b">
       <%= ipizza_payment_form_tag @bankpayment, :service => :swedbank do %>
-          <%= submit_tag 'Pay using SwedBank' %>
+          <%= submit_tag t(:pay_with_swed_bank), :class => 'primary' %>
        <% end %>   
        </span>
   <span class="right_b"></span>

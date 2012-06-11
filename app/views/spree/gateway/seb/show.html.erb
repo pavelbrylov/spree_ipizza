@@ -9,9 +9,11 @@
 <button style="margin-left: 350px;" class="button_buy left" href="">
   <span class="left_b"></span>
   <span class="line_b">
+    <div class="form-buttons" data-hook="buttons">
     <%= ipizza_payment_form_tag @bankpayment, :service => :seb do %>
-        <%= submit_tag 'Pay using SEB Bank' %>
+        <%= submit_tag t(:pay_with_seb_bank), :class => 'primary' %>
     <% end %>
+    </div>
   </span>
   <span class="right_b"></span>
 </button>
