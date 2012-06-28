@@ -1,17 +1,17 @@
 <% content_for :page_title do %>
-<h1 class="font-41 black"><%= t("seb.pay")%></h1>
+<h1><%= t("seb.pay")%></h1>
 <% end %>
-<h1 class="font-41 black"><%= "#{t('order')} #{@order.number}" %></h1>
+<h1><%= "#{t('order')} #{@order.number}" %></h1>
 <%= render :partial => 'spree/shared/order_details', :locals => {:order => @order} %>
 
 <div class="clear"></div>
-<div class="font-41">&nbsp;</div>
+<div>&nbsp;</div>
 <button style="margin-left: 350px;" class="button_buy left" href="">
   <span class="left_b"></span>
   <span class="line_b">
     <div class="form-buttons" data-hook="buttons">
-    <%= ipizza_payment_form_tag @bankpayment, :service => :seb do %>
-        <%= submit_tag t(:pay_with_seb_bank), :class => 'primary' %>
+    <%= ipizza_payment_form_tag @bankpayment, :service => @gateway.method_type do %>
+      <%= submit_tag t("pay_with_#{@gateway.method_type}_bank"), :class => 'primary' %>
     <% end %>
     </div>
   </span>

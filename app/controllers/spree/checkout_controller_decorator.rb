@@ -10,18 +10,10 @@ module Spree
       return unless (params[:state] == "payment")
       payment_method = Spree::PaymentMethod.find(params[:order][:payments_attributes].first[:payment_method_id])
 
-      if payment_method.kind_of? Spree::Gateway::Seb
-        if !request.ssl? && Rails.env =~ /production/
-          redirect_to gateway_seb_path(:order_id => @order.number, :protocol => "https", :host => Rails.application.config.main_domain)
-        else
-          redirect_to gateway_seb_path(:order_id => @order.number)
-        end
-      elsif payment_method.kind_of? Spree::Gateway::Swedbank
-        if !request.ssl? && Rails.env =~ /production/
-          redirect_to gateway_swedbank_path(:order_id => @order.number, :protocol => "https", :host => Rails.application.config.main_domain)
-        else
-          redirect_to gateway_swedbank_path(:order_id => @order.number)
-        end
+      if !request.ssl? && Rails.env =~ /production/
+        redirect_to gateway_ipizza_path(:order_id => @order.number, :protocol => "https", :host => Rails.application.config.main_domain)
+      else
+        redirect_to gateway_ipizza_path(:order_id => @order.number)
       end
 
     end

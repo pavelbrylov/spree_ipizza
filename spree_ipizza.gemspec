@@ -18,4 +18,6 @@ Gem::Specification.new do |s|
 
   s.add_dependency('spree_core', '>= 0.70')
   s.add_dependency('ipizza-rails', '>= 0.0.6')
+  s.add_development_dependency('rspec-rails')
+  s.add_development_dependency('sqlite3')
 end
