@@ -6,18 +6,31 @@ require File.expand_path("../dummy/config/environment.rb",  __FILE__)
 
 
 require 'rspec/rails'
+require 'ffaker'
 
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.
 Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
 
 #include spree's factories
-#require 'spree_core/testing_support/factories'
+require 'spree/core/testing_support/factories'
+require 'spree/core/url_helpers'
+require 'spree/core/testing_support/controller_requests'
 
 # include local factories
-Dir["#{File.dirname(__FILE__)}/factories/**/*.rb"].each { |f| require File.expand_path(f) }
+#Dir["#{File.dirname(__FILE__)}/factories/**/*.rb"].each { |f| require File.expand_path(f) }
 
 RSpec.configure do |config|
+  config.include FactoryGirl::Syntax::Methods
+
+  # == URL Helpers
+  #
+  # Allows access to Spree's routes in specs:
+  #
+  # visit spree.admin_path
+  # current_path.should eql(spree.products_path)
+  config.include Spree::Core::UrlHelpers
+  config.include Spree::Core::TestingSupport::ControllerRequests
   # == Mock Framework
   #
   # If you prefer to use mocha, flexmock or RR, uncomment the appropriate line:

@@ -1,3 +1,4 @@
 en:
   pay_with_seb_bank: "Pay with SEB Bank"
   pay_with_swed_bank: "Pay with SwedBank"
+  unable_to_find_order: "We were unable to find your order. Please contact website administration"

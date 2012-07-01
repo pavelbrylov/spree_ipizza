@@ -4,6 +4,11 @@ module Spree
       self.class
     end
 
+    #Overring preferences set in Gateway model
+    def preferences
+      {}
+    end
+
     def test?
       options[:test_mode] == true
     end
