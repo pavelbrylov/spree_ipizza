@@ -40,6 +40,9 @@ module Spree
           raise Spree::Core::GatewayError, "Payment verification error, please contact website administrator" 
         end
 
+        # Swedbank returns to success, but sets VK_AMOUTN to 0
+        failure if params[:VK_AMOUNT].to_f == 0
+
         payment.amount = params[:VK_AMOUNT].to_f
         payment.save
         payment.complete! unless payment.state == "completed"
